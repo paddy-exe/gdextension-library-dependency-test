@@ -22,3 +22,15 @@ bin
 *.includes
 *.idb
 *.exp
+*.dylib
+*.framework
+*.dll
+
+# CMake specific
+CMakeFiles
+CMakeCache.txt
+Makefile
+cmake_install.cmake
+
+# CLion specific
+*.idea

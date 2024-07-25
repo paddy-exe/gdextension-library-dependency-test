@@ -14,6 +14,15 @@ env = SConscript("godot-cpp/SConstruct")
 
 # tweak this if you want to use different folders, or more folders, to store your source code in.
 env.Append(CPPPATH=["src/"])
+env.Append(LIBS=["libSumLib"])
+env.Append(LIBPATH=["includes/SumLib/lib/"])
+
+# needed to add a new rpath value since while in development we run the shared library
+# through the Godot editor itself and the dynamic linker looks inside the editor binary
+# for linked dynamic library dependencies
+# absolute paths are needed here so we supply the first folder
+env.Append(LINKFLAGS=["-Wl,-rpath," + os.path.abspath("includes/SumLib/lib/")])
+
 sources = Glob("src/*.cpp")
 
 if env["target"] in ["editor", "template_debug"]:

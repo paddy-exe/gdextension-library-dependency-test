@@ -10,6 +10,8 @@
 
 #include <godot_cpp/classes/ref.hpp>
 
+#include "../../includes/SumLib/sumlib.h"
+
 using namespace godot;
 
 class Summator : public RefCounted
@@ -26,6 +28,7 @@ public:
     ~Summator();
 
     void add(int p_value);
+    int add_two(int p_val_a, int p_val_b);
     void reset();
     int get_total() const;
 };
